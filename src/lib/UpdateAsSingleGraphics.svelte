@@ -22,7 +22,8 @@
 
         for (const [i, c] of rndValues.entries()) {
             const rndColor = chroma.random();
-            g.beginFill(rndColor.hex());
+            g.beginFill(rndColor.num());
+            // g.beginFill(rndColor.hex());
             g.drawRect(0 + i * cWidth, 0, cWidth, c);
             g.endFill();
         }
@@ -30,7 +31,7 @@
 
     onMount(() => {
         // Create the application helper and add its render target to the page
-        let app = new PIXI.Application<HTMLCanvasElement>({ width: canvasWidth, height: canvasHeight });
+        let app = new PIXI.Application({ width: canvasWidth, height: canvasHeight });
         parentHTML.appendChild(app.view);
 
         // Create the sprite and add it to the stage

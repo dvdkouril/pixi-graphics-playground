@@ -27,14 +27,14 @@
     const makeBarChart = (g: PIXI.Graphics, values: number[], colors: string[], offset: number) => {
         const cWidth = canvasWidth / values.length;
         for (const [i, c] of values.entries()) {
-            g.beginFill(colors[i]);
+            g.beginFill(chroma(colors[i]).num());
             g.drawRect(offset + i * cWidth, 0, cWidth, c);
             g.endFill();
         }
     };
 
     onMount(() => {
-        let app = new PIXI.Application<HTMLCanvasElement>({ width: canvasWidth, height: canvasHeight });
+        let app = new PIXI.Application({ width: canvasWidth, height: canvasHeight });
         parentHTML.appendChild(app.view);
 
         const values = generateRandomValuesArr(valuesNum, canvasHeight);
