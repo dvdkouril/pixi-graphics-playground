@@ -5,33 +5,58 @@
 
     let canvasWidth = 800;
     let canvasHeight = 100;
+
+    let showExampleA = true;
+    let showExampleB = true;
+    let showExampleC = true;
 </script>
 
 <h1>PIXI.js graphics test</h1>
 <div style="width: 800px;">
-    <div>
+    <!-- <div>
         <p>Each frame do graphics.clear() and reassemble using graphics.drawRect():</p>
-        <p class="count-title">100 rects:</p>
-        <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={100} />
-        <p class="count-title">1000 rects:</p>
-        <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={1000} />
-        <p class="count-title">10000 rects:</p>
-        <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={10000} />
+        <button
+            on:click={() => {
+                showExampleA = !showExampleA;
+            }}>{showExampleA ? "on" : "off"}</button
+        >
+        {#if showExampleA}
+            <p class="count-title">100 rects:</p>
+            <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={100} />
+            <p class="count-title">1000 rects:</p>
+            <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={1000} />
+            <p class="count-title">10000 rects:</p>
+            <ReassembleEveryFrame {canvasWidth} {canvasHeight} valuesNum={10000} />
+        {/if}
     </div>
 
     <div>
         <p>Make the graphics object once and update its x coordinate each frame:</p>
-        <p class="count-title">100 rects:</p>
-        <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={100} />
-        <p class="count-title">1000 rects:</p>
-        <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={1000} />
-        <p class="count-title">10000 rects:</p>
-        <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={10000} />
-    </div>
+        <button
+            on:click={() => {
+                showExampleB = !showExampleB;
+            }}>{showExampleB ? "on" : "off"}</button
+        >
+        {#if showExampleB}
+            <p class="count-title">100 rects:</p>
+            <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={100} />
+            <p class="count-title">1000 rects:</p>
+            <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={1000} />
+            <p class="count-title">10000 rects:</p>
+            <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={10000} />
+        {/if}
+    </div> -->
 
     <div>
         <p>Each frame do graphics.clear() and reassemble, but divide rects into several Graphics objects:</p>
-        <ManyRectsInManyGraphicsObjects {canvasWidth} {canvasHeight} valuesNum={10000} />
+        <!-- <button
+            on:click={() => {
+                showExampleC = !showExampleC;
+            }}>{showExampleC ? "on" : "off"}</button
+        > -->
+        {#if showExampleC}
+            <ManyRectsInManyGraphicsObjects {canvasWidth} {canvasHeight} valuesNum={10000} />
+        {/if}
     </div>
 </div>
 

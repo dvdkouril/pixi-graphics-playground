@@ -131,7 +131,6 @@
         app.stage.addChild(graphics);
 
         //~ frame loop
-        let elapsed = 0.0;
         const render = (frametime: number) => {
             const removed = graphics.removeChildren();
             for (const obj of removed) {
@@ -139,8 +138,6 @@
             }
             graphics.clear();
 
-            elapsed += frametime;
-            // const offset = Math.cos(frametime / 10.0 / 50.0) * 100.0;
             makeDummyHeatmapChart(graphics, values, offsetX, offsetY);
 
             requestAnimationFrame(render);
