@@ -1,4 +1,5 @@
 <script lang="ts">
+    import ManyRectsInManyGraphicsObjects from "$lib/ManyRectsInManyGraphicsObjects.svelte";
     import ReassembleEveryFrame from "$lib/ReassembleEveryFrame.svelte";
     import UpdateAsSingleGraphics from "$lib/UpdateAsSingleGraphics.svelte";
 
@@ -26,6 +27,11 @@
         <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={1000} />
         <p class="count-title">10000 rects:</p>
         <UpdateAsSingleGraphics {canvasWidth} {canvasHeight} valuesNum={10000} />
+    </div>
+
+    <div>
+        <p>Each frame do graphics.clear() and reassemble, but divide rects into several Graphics objects:</p>
+        <ManyRectsInManyGraphicsObjects {canvasWidth} {canvasHeight} valuesNum={10000} />
     </div>
 </div>
 
